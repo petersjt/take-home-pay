@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" href="styles.css" />
+    <title>Take-Home Profile</title>
+  </head>
+  <body>
+    <h1>Take-home profile</h1>
+    <p class="description">
+      Set your tax profile to keep take-home estimates within a realistic range.
+      This is a fast approximation, not formal tax advice.
+    </p>
+
+    <label for="filingStatus">Filing status</label>
+    <select id="filingStatus">
+      <option value="single">Single</option>
+      <option value="married">Married Filing Jointly</option>
+    </select>
+
+    <label for="state">State</label>
+    <select id="state">
+      <option value="ca">California</option>
+      <option value="ny">New York</option>
+      <option value="ma">Massachusetts</option>
+      <option value="il">Illinois</option>
+      <option value="tx">Texas</option>
+      <option value="fl">Florida</option>
+      <option value="wa">Washington</option>
+      <option value="other">Other</option>
+      <option value="none">No state tax</option>
+    </select>
+
+    <label for="incomeBand">Income band</label>
+    <select id="incomeBand">
+      <option value="<100k">Below $100k</option>
+      <option value="100k-200k">$100k – $200k</option>
+      <option value="200k-400k">$200k – $400k</option>
+      <option value=">400k">Above $400k</option>
+    </select>
+
+    <div class="checkbox-row">
+      <input type="checkbox" id="includeFica" checked />
+      <label for="includeFica">Include FICA</label>
+    </div>
+
+    <div class="checkbox-row">
+      <input type="checkbox" id="includeMedicare" checked />
+      <label for="includeMedicare">Include Medicare</label>
+    </div>
+
+    <div class="checkbox-row">
+      <input type="checkbox" id="includeState" checked />
+      <label for="includeState">Include state tax</label>
+    </div>
+
+    <label for="additionalDeductions">Additional deductions ($)</label>
+    <input type="number" id="additionalDeductions" min="0" step="500" value="0" />
+
+    <button id="save">Save profile</button>
+    <div class="status" id="status"></div>
+
+    <script type="module" src="popup.js"></script>
+  </body>
+</html>
