@@ -90,7 +90,21 @@ Coordinates message passing and caching of user profile data.
 	3.	Enable Developer mode (toggle in the top right).
 	4.	Click Load unpacked.
 	5.	Select the project folder.
-	6.	Visit any website containing dollar amounts to see the extension in action.
+	6.	Fill out your profile via the extension popup (filing status, state, income band).
+	7.	Visit any website containing dollar amounts to see the extension in action.
+
+Current implementation (MVP)
+	•	contentScript.js
+		•	Scans text nodes for currency-like strings (e.g., “$200,000”, “150k”) and injects a badge with a take-home estimate.
+		•	Shows a tooltip on hover with the original amount, take-home amount, effective rate, and current profile.
+	•	taxCalculator.js
+		•	Provides light-weight effective rate estimates based on filing status, income band, and toggleable state/FICA/Medicare components.
+		•	Exposes loadProfile() (storage defaults), estimateEffectiveRate(), estimateTakeHome(), and formatCurrency().
+	•	popup.html / popup.js
+		•	Lets users save a quick profile (filing status, state, income band, optional deductions, and tax toggles).
+		•	Shows a live preview for a $100k sample to set expectations.
+	•	background.js
+		•	Seeds default profile data and notifies open tabs when the profile changes.
 
 ⸻
 
